@@ -1,0 +1,140 @@
+{
+    "ApplicationName": "HelloBlockchain",
+    "DisplayName": "Secure Election",
+    "Description": "A simple application to conduct elections securely and expedite vote counting.",
+    "ApplicationRoles": [
+        {
+            "Name": "Voter",
+            "Description": "A person sending a vote."
+        }
+    ],
+    "Workflows": [
+        {
+            "Name": "SecureElection",
+            "DisplayName": "Vote for your choice",
+            "Description": "A simple workflow to send a vote.",
+            "Initiators": [
+                "Voter"
+            ],
+            "StartState": "Vote",
+            "Properties": [
+                {
+                    "Name": "State",
+                    "DisplayName": "State",
+                    "Description": "Holds the state of the contract.",
+                    "Type": {
+                        "Name": "state"
+                    }
+                },
+                {
+                    "Name": "Voter",
+                    "DisplayName": "Voter",
+                    "Description": "A person sending a vote.",
+                    "Type": {
+                        "Name": "Voter"
+                    }
+                },
+                {
+                    "Name": "AadharVID",
+                    "DisplayName": "Aadhar VID",
+                    "Description": "Aadhar VID of the voter.",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "AadharOTP",
+                    "DisplayName": "Aadhar OTP",
+                    "Description": "OTP for the Aadhar VID of the voter.",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "VotedParty",
+                    "DisplayName": "Vote Casted",
+                    "Description": "A request message.",
+                    "Type": {
+                        "Name": "enum",
+                        "EnumValues": ["BJP", "Congress", "AAP"]
+                    }
+                }
+            ],
+            "Constructor": {
+                "Parameters": [
+                    {
+                        "Name": "aadharVid",
+                        "Description": "...",
+                        "DisplayName": "Aadhar ID",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "aadharOtp",
+                        "Description": "...",
+                        "DisplayName": "Aadhar OTP",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "party",
+                        "Description": "...",
+                        "DisplayName": "Political Party Voted",
+                        "Type": {
+                            "Name": "enum",
+                            "EnumValues": ["BJP", "Congress", "AAP"]
+                        }
+                    }
+                ]
+            },
+            "Functions": [
+                {
+                    "Name": "SendVote",
+                    "DisplayName": "Vote",
+                    "Description": "...",
+                    "Parameters": [
+                        {
+                            "Name": "aadharVid",
+                            "Description": "...",
+                            "DisplayName": "Aadhar ID",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        },
+                        {
+                            "Name": "aadharOtp",
+                            "Description": "...",
+                            "DisplayName": "Aadhar OTP",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        },
+                        {
+                            "Name": "party",
+                            "Description": "...",
+                            "DisplayName": "Vote Casted",
+                            "Type": {
+                                "Name": "enum",
+                                "EnumValues": ["BJP", "Congress", "AAP"]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "States": [
+                {
+                    "Name": "Vote",
+                    "DisplayName": "Vote",
+                    "Description": "...",
+                    "PercentComplete": 100,
+                    "Value": 0,
+                    "Style": "Success",
+                    "Transitions": [
+                    ]
+                }
+            ]
+        }
+    ]
+}
